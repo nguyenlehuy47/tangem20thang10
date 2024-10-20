@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 20/10</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8d7da;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #c70039;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        p {
+            color: #5f6368;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            display: none; /* Ẩn nội dung ban đầu */
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .heart {
+            color: #ff4757;
+            font-size: 4rem;
+            animation: beat 1s infinite alternate;
+        }
+
+        img {
+            margin-top: 20px;
+            width: 300px;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #c70039;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #ff4757;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes beat {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Chúc Mừng Ngày 20/10</h1>
+    <button onclick="showMessage()">Nhấn để xem lời chúc!</button>
+    <p id="message">Chúc tất cả phụ nữ Việt Nam luôn xinh đẹp, hạnh phúc và thành công!</p>
+    <div class="heart">❤️</div>
+    
+    <!-- Thêm ảnh từ Imgur -->
+    <img src="https://i.imgur.com/kNYTkG0.jpg" alt="Hình chúc mừng">
+
+    <script>
+        function showMessage() {
+            document.getElementById('message').style.display = 'block'; // Hiện nội dung khi nút được nhấn
+        }
+    </script>
+</body>
+</html>
