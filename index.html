@@ -19,28 +19,27 @@
             animation: fadeIn 2s ease-in-out;
         }
 
-        p {
+        .message {
             color: #5f6368;
             font-size: 1.5rem;
             margin-top: 20px;
-            animation: fadeIn 3s ease-in-out;
-            display: none; /* Ẩn lời chúc ban đầu */
+            display: none;
         }
 
         .heart {
             color: #ff4757;
             font-size: 4rem;
             animation: beat 1s infinite alternate;
-            display: none; /* Ẩn trái tim ban đầu */
+            display: none;
         }
 
         img {
             margin-top: 20px;
             width: 300px;
             border-radius: 15px;
-            display: none; /* Ẩn hình ảnh ban đầu */
-            display: block; /* Để hình ảnh là phần tử block */
-            margin: 20px auto; /* Căn giữa hình ảnh */
+            display: none;
+            display: block;
+            margin: 20px auto;
         }
 
         button {
@@ -78,32 +77,61 @@
     </style>
 </head>
 <body>
-    <h1>Chúc Mừng Ngày 20/10</h1>
+    <h1>Chúc Mừng Ngày 20-10 Người Yêu Dấu</h1>
     
-    <!-- Nút để hiển thị lời chúc -->
     <button onclick="showContent()">Xem Lời Chúc</button>
     
-    <p id="message">Chúc tất cả phụ nữ Việt Nam luôn xinh đẹp, hạnh phúc và thành công!</p>
+    <div class="message" id="message"></div>
     <div class="heart" id="heart">❤️</div>
     <img id="image" src="https://i.imgur.com/kNYTkG0.jpg" alt="Hình chúc mừng">
 
-    <!-- Thêm audio -->
     <audio id="audio" src="tangem2010.mp3"></audio>
 
     <script>
+        const messages = [
+            "Chúc em ngày càng xinh đẹp!",
+            "Chúc em luôn luôn hạnh phúc",
+            "Chúc em học tập tốt",
+            "Chúc em có thật nhiều sức khỏe!",
+            "Hy vọng em biết yêu bản thân mình hơn!",
+            "Cảm ơn em vì đã yêu tui!"
+        ];
+        const messageDiv = document.getElementById("message");
+
         function showContent() {
-            // Hiển thị lời chúc, trái tim và hình ảnh
-            document.getElementById("message").style.display = "block";
             document.getElementById("heart").style.display = "block";
             document.getElementById("image").style.display = "block";
-
-            // Ẩn nút
             document.querySelector("button").style.display = "none";
-
-            // Phát audio
             document.getElementById("audio").play();
+            showMessage(0);
+        }
+
+        function showMessage(index) {
+            if (index < messages.length) {
+                messageDiv.textContent = "";
+                let messageText = messages[index];
+                messageDiv.style.display = "block";
+
+                let letterIndex = 0;
+
+                function showNextLetter() {
+                    if (letterIndex < messageText.length) {
+                        messageDiv.textContent += messageText[letterIndex];
+                        letterIndex++;
+                        setTimeout(showNextLetter, 200);
+                    } else {
+                        messageDiv.onclick = function() {
+                            messageDiv.onclick = null;
+                            showMessage(index + 1);
+                        };
+                    }
+                }
+
+                showNextLetter();
+            }
         }
     </script>
 </body>
 </html>
+
 
