@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chúc Mừng 20/10</title>
+    <title>Tặng em ngày 20-10</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -75,16 +75,21 @@
 </head>
 <body>
     <h1>Chúc Mừng Ngày 20/10</h1>
-    <button onclick="showMessage()">Nhấn để xem lời chúc!</button>
+    <button id="showButton" onclick="showMessage()">Nhấn để xem lời chúc!</button>
     <p id="message">Chúc tất cả phụ nữ Việt Nam luôn xinh đẹp, hạnh phúc và thành công!</p>
     <div class="heart">❤️</div>
     
     <!-- Thêm ảnh từ Imgur -->
     <img src="https://i.imgur.com/kNYTkG0.jpg" alt="Hình chúc mừng">
+    
+    <!-- Thêm audio -->
+    <audio id="audio" src="https://example.com/path-to-your-audio-file.mp3" preload="auto"></audio>
 
     <script>
         function showMessage() {
             document.getElementById('message').style.display = 'block'; // Hiện nội dung khi nút được nhấn
+            document.getElementById('audio').play(); // Phát âm thanh khi nút được nhấn
+            document.getElementById('showButton').style.display = 'none'; // Ẩn nút sau khi nhấn
         }
     </script>
 </body>
