@@ -23,31 +23,33 @@
             color: #5f6368;
             font-size: 1.5rem;
             margin-top: 20px;
-            display: none; /* Ẩn nội dung ban đầu */
             animation: fadeIn 3s ease-in-out;
+            display: none; /* Ẩn lời chúc ban đầu */
         }
 
         .heart {
             color: #ff4757;
             font-size: 4rem;
             animation: beat 1s infinite alternate;
+            display: none; /* Ẩn trái tim ban đầu */
         }
 
         img {
             margin-top: 20px;
             width: 300px;
             border-radius: 15px;
+            display: none; /* Ẩn hình ảnh ban đầu */
         }
 
         button {
+            font-size: 1.5rem;
             padding: 10px 20px;
-            font-size: 1rem;
-            color: white;
             background-color: #c70039;
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 20px;
+            transition: background-color 0.3s;
         }
 
         button:hover {
@@ -75,21 +77,29 @@
 </head>
 <body>
     <h1>Chúc Mừng Ngày 20/10</h1>
-    <button id="showButton" onclick="showMessage()">Nhấn để xem lời chúc!</button>
+    
+    <!-- Nút để hiển thị lời chúc -->
+    <button onclick="showContent()">Xem Lời Chúc</button>
+    
     <p id="message">Chúc tất cả phụ nữ Việt Nam luôn xinh đẹp, hạnh phúc và thành công!</p>
-    <div class="heart">❤️</div>
-    
-    <!-- Thêm ảnh từ Imgur -->
-    <img src="https://i.imgur.com/kNYTkG0.jpg" alt="Hình chúc mừng">
-    
+    <div class="heart" id="heart">❤️</div>
+    <img id="image" src="https://i.imgur.com/kNYTkG0.jpg" alt="Hình chúc mừng">
+
     <!-- Thêm audio -->
-    <audio id="[Vietsub  Lyrics] Can't Help Falling in Love (Cover by Alyssa Baker).mp3" preload="auto"></audio>
+    <audio id="audio" src="your-audio-file.mp3"></audio>
 
     <script>
-        function showMessage() {
-            document.getElementById('message').style.display = 'block'; // Hiện nội dung khi nút được nhấn
-            document.getElementById('audio').play(); // Phát âm thanh khi nút được nhấn
-            document.getElementById('showButton').style.display = 'none'; // Ẩn nút sau khi nhấn
+        function showContent() {
+            // Hiển thị lời chúc, trái tim và hình ảnh
+            document.getElementById("message").style.display = "block";
+            document.getElementById("heart").style.display = "block";
+            document.getElementById("image").style.display = "block";
+
+            // Ẩn nút
+            document.querySelector("button").style.display = "none";
+
+            // Phát audio
+            document.getElementById("audio").play();
         }
     </script>
 </body>
